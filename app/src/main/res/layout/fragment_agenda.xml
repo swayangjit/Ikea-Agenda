@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/grid_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TableLayout
+                    android:id="@+id/tableRowContents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/txt_agenda_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="12"
+                            android:background="@drawable/header_bg"
+                            android:padding="16dp"
+                            android:text="Day 1, 5th December Agenda"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp" />
+
+
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+    </ScrollView>
+
+    <com.sample.app.customview.CircleProgressBar
+        android:id="@+id/circularProgressBar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

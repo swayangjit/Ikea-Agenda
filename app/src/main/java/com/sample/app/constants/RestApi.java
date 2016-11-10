@@ -5,5 +5,8 @@ package com.sample.app.constants;
  */
 
 public class RestApi {
-    public static final String BASE_URL = "https://ikeacoworkervisit1.mybluemix.net/DayController?action=day1";
+    public static final String BASE_URL = "https://ikeacoworkervisit1.mybluemix.net/";
+    public static final String DAYCONTROLLER = "DayController?";
+    public static final String FEEDCONTROLLER = "FeedbackController?";
+    public static final String FEEDBACKCACTION = "action=feedback";
 }

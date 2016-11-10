@@ -86,15 +86,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return AgendaFragment.newInstance("day1", "Day 1 , 5th December Agenda");
+                    return AgendaFragment.newInstance("day1", "Day 1 , 5th December");
                 case 1:
-                    return AgendaFragment.newInstance("day2", "Day 2 , 6th December Agenda");
+                    return AgendaFragment.newInstance("day2", "Day 2 , 6th December");
                 case 2:
-                    return AgendaFragment.newInstance("day3", "Day 3 , 7th December Agenda");
+                    return AgendaFragment.newInstance("day3", "Day 3 , 7th December");
                 case 3:
-                    return AgendaFragment.newInstance("day4", "Day 4 , 8th December Agenda");
+                    return AgendaFragment.newInstance("day4", "Day 4 , 8th December");
                 case 4:
-                    return AgendaFragment.newInstance("day5", "Day 5 , 9th December Agenda");
+                    return AgendaFragment.newInstance("day5", "Day 5 , 9th December");
                 default:
                     return null;
             }
@@ -104,17 +104,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Day 1 Agenda";
+                    return "Day 1 Bengaluru";
                 case 1:
-                    return "Day 2 Agenda";
+                    return "Day 2 Bengaluru";
                 case 2:
-                    return "Day 3 Agenda";
+                    return "Day 3 Bengaluru";
                 case 3:
-                    return "Day 4 Agenda";
+                    return "Day 4 Kolkata";
                 case 4:
-                    return "Day 5 Agenda";
-                case 5:
-                    return "Day 6 Agenda";
+                    return "Day 5 Kolkata";
+
                 default:
                     return null;
             }

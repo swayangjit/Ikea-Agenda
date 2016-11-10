@@ -200,16 +200,15 @@ public class AgendaFragment extends Fragment implements View.OnClickListener {
                             CoordinatorLayout coordinatorLayout = (CoordinatorLayout) getActivity().findViewById(R.id.cooridinatorLayout);
                             EditText edt_Name = (EditText) dialog.getCustomView().findViewById(R.id.edt_name);
                             EditText edt_FeedBack = (EditText) dialog.getCustomView().findViewById(R.id.edt_feedback);
-                            Spinner spinner_Time = (Spinner) dialog.getCustomView().findViewById(R.id.spinner_time);
                             Spinner spinner_Name = (Spinner) dialog.getCustomView().findViewById(R.id.spinner_session_name);
                             if (TextUtils.isEmpty(edt_Name.getText().toString())) {
                                 Snackbar.make(coordinatorLayout, "Please enter Name", Snackbar.LENGTH_LONG).show();
                             } else if (TextUtils.isEmpty(edt_FeedBack.getText().toString())) {
                                 Snackbar.make(coordinatorLayout, "Please enter Feedback", Snackbar.LENGTH_LONG).show();
                             } else {
-                                Record selectedRecord = selectedRecord(spinner_Name.getSelectedItem().toString(), spinner_Time.getSelectedItem().toString());
+                                Record selectedRecord = selectedRecord(spinner_Name.getSelectedItem().toString());
                                 try {
-                                    invokeFeedbackApi("&day=" + mParam + "&start_time=" + selectedRecord.getStartTime() + "&session=" + URLEncoder.encode(selectedRecord.getSession(), "UTF-8") + "&sessionLead=" + selectedRecord.getSessionLead() + "&feedback=" + edt_FeedBack.getText().toString().trim() + "&name=" + URLEncoder.encode(edt_Name.getText().toString(), "UTF-8"));
+                                    invokeFeedbackApi("&day=" + mParam + "&start_time=" + selectedRecord.getStartTime() + "&session=" + URLEncoder.encode(selectedRecord.getSession(), "UTF-8") + "&sessionLead=" + URLEncoder.encode(selectedRecord.getSessionLead()) + "&feedback=" + edt_FeedBack.getText().toString().trim() + "&name=" + URLEncoder.encode(edt_Name.getText().toString(), "UTF-8"));
                                 } catch (UnsupportedEncodingException e) {
                                     e.printStackTrace();
                                 }
@@ -226,13 +225,9 @@ public class AgendaFragment extends Fragment implements View.OnClickListener {
                     })
                     .show();
             View view = dialog.getCustomView();
-            Spinner spinner_Time = (Spinner) view.findViewById(R.id.spinner_time);
             Spinner spinner_Name = (Spinner) view.findViewById(R.id.spinner_session_name);
-            ArrayAdapter<String> timeAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, timeList);
 
-            timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-            spinner_Time.setAdapter(timeAdapter);
 
             ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, nameList);
 
@@ -246,11 +241,11 @@ public class AgendaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private Record selectedRecord(String name, String time) {
+    private Record selectedRecord(String name) {
         if (mRecordList != null) {
             for (int i = 0; i < mRecordList.size(); i++) {
                 Record record = mRecordList.get(i);
-                if (record.getStartTime().equalsIgnoreCase(time) && record.getSession().equalsIgnoreCase(name)) {
+                if (record.getSession().equalsIgnoreCase(name)) {
                     return record;
                 }
             }

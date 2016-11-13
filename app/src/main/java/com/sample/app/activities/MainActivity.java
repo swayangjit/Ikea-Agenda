@@ -8,15 +8,26 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
+import com.sample.app.App;
 import com.sample.app.R;
+import com.sample.app.constants.RestApi;
 import com.sample.app.fragments.AgendaFragment;
 import com.sample.app.fragments.OthersFragment;
+import com.sample.app.util.PreferenceUtil;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
+    private static final String TAG = MainActivity.class.getName();
     private Toolbar mToolBar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -27,8 +38,35 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//
+        insertFcmToken();
         initView();
+    }
+
+    private void insertFcmToken() {
+        Log.i("Token", PreferenceUtil.getInstance().getFcmToken());
+        String token = PreferenceUtil.getInstance().getFcmToken();
+        if (!TextUtils.isEmpty(token)) {
+            String url = RestApi.BASE_URL + RestApi.NOTIFICATIONCONTROLLER + RestApi.INSERTTOKENCACTION + "&token=" + token;
+            StringRequest strReq = new StringRequest(Request.Method.POST,
+                    url, new Response.Listener<String>() {
+
+                @Override
+                public void onResponse(String response) {
+                    VolleyLog.d(TAG, "FCM token inserted");
+
+
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                }
+            });
+
+
+            App.getInstance().addToRequestQueue(strReq);
+        }
     }
 
     private void initView() {

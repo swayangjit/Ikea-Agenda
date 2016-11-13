@@ -10,11 +10,13 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.sample.app.util.PreferenceUtil;
 
 public class App extends Application {
 
     public static final String TAG = App.class
             .getSimpleName();
+    private static final String SHARED_PREF_NAME = "Agenda";
     private static App mInstance;
     private RequestQueue mRequestQueue;
 
@@ -26,6 +28,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        PreferenceUtil.init(this, SHARED_PREF_NAME);
     }
 
     public RequestQueue getRequestQueue() {

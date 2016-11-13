@@ -14,8 +14,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.sample.app.App;
 import com.sample.app.R;
-import com.sample.app.Record;
-import com.sample.app.RecordList;
+import com.sample.app.model.Record;
+import com.sample.app.model.RecordList;
 
 import java.util.List;
 

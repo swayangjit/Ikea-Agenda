@@ -51,6 +51,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
                             android:text="@string/hotel"
                             android:textAppearance="?android:textAppearanceMedium" />
                     </LinearLayout>
@@ -90,6 +91,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
                             android:text="@string/office"
                             android:textAppearance="?android:textAppearanceMedium" />
                     </LinearLayout>

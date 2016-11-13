@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sample.app.R;
-import com.sample.app.Record;
+import com.sample.app.model.Record;
 
 import java.util.List;
 

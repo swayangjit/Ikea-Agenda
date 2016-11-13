@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.sample.app.R;
 import com.sample.app.fragments.AgendaFragment;
+import com.sample.app.fragments.OthersFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Toolbar mToolBar;
@@ -69,7 +70,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 5;
+        private static int NUM_ITEMS = 6;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -95,6 +96,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     return AgendaFragment.newInstance("day4", "Day 4 , 8th December");
                 case 4:
                     return AgendaFragment.newInstance("day5", "Day 5 , 9th December");
+                case 5:
+                    return OthersFragment.newInstance();
                 default:
                     return null;
             }
@@ -113,7 +116,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     return "Day 4 Kolkata";
                 case 4:
                     return "Day 5 Kolkata";
-
+                case 5:
+                    return "Others";
                 default:
                     return null;
             }

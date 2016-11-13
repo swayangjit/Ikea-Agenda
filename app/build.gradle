@@ -10,9 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        jackOptions {
-            enabled true
-        }
+
     }
     buildTypes {
         debug {
@@ -30,10 +28,7 @@ android {
             output.outputFile = new File(output.outputFile.parent, "ikeaagenda-" + versionName + ".apk")
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+
 }
 
 dependencies {

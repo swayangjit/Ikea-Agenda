@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void insertFcmToken() {
-        Log.i("Token", PreferenceUtil.getInstance().getFcmToken());
         String token = PreferenceUtil.getInstance().getFcmToken();
         if (!TextUtils.isEmpty(token)) {
             String url = RestApi.BASE_URL + RestApi.NOTIFICATIONCONTROLLER + RestApi.INSERTTOKENCACTION + "&token=" + token;

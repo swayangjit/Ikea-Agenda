@@ -12,10 +12,12 @@ android:
     - extra-android-m2repository
     - extra-android-support
     - extra-google-m2repository
+
 notifications:
   email:
-    - ashokmylove@gmail.com
-    - swayangjit029@gmail.com
+    recipients:
+     - ashokmylove@gmail.com
+     - swayangjit029@gmail.com
     on_success: always
     on_failure: always
 

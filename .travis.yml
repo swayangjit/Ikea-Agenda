@@ -15,5 +15,6 @@ android:
 notifications:
   email:
     - ashokmylove@gmail.com
+    - swayangjit029@gmail.com
 
 script: ./gradlew clean test aR

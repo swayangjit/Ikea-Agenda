@@ -1,16 +1,13 @@
 language: android
+jdk: oraclejdk8
+sudo: false
+
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-     - platform-tools
-     - tools
-
-    # The BuildTools version used by your project
-    - build-tools-23.0.3
-
-    # The SDK version used to compile your project
-    - android-23
-notifications:
-  email:
-    - swayangjit029@gmail.com
+    - platform-tools
+    - tools
+    - build-tools-24.0.2
+    - android-22
+    - android-24
+    - sys-img-armeabi-v7a-android-22
+    - extra-android-m2repository

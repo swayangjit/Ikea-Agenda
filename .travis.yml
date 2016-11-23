@@ -16,5 +16,7 @@ notifications:
   email:
     - ashokmylove@gmail.com
     - swayangjit029@gmail.com
+    on_success: always
+    on_failure: always
 
 script: ./gradlew clean test aR
